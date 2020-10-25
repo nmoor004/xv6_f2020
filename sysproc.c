@@ -14,9 +14,14 @@ sys_fork(void)
 }
 
 int
-sys_exit(void)
+sys_exit(void) //==LAB1==
 {
-  exit();
+    int status;
+    if (argint(0, &status) < 0) { //==LAB1== Seems like mimicking function sys_kill worked out lol
+        return -1;
+    } else {
+        exit(status); //==LAB1== Might need to check this one later
+    }
   return 0;  // not reached
 }
 
