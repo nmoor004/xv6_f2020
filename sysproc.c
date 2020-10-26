@@ -28,7 +28,11 @@ sys_exit(void) //==LAB1==
 int
 sys_wait(void)
 {
-  return wait();
+    int *status;
+    if (argptr(0, (void*)&status, sizeof(status) < 0)) { //==LAB1==
+        return -1;
+    }
+  return wait(status);
 }
 
 int
