@@ -15,10 +15,14 @@ int main(int argc, char *argv[])
     if (atoi(argv[1]) == 1) {
         exitWait();
     }
-    else if (atoi(argv[1]) == 2) {}
-        //waitPid();
-    else if (atoi(argv[1]) == 3) {}
-        //CELEBW02();
+    else if (atoi(argv[1]) == 2) {
+        waitPid();
+    }
+
+    else if (atoi(argv[1]) == 3) {
+        CELEBW02();
+    }
+
     else {
         printf(1,
                "\ntype \"lab1 1\" to test exit and wait, \"lab1 2\" to test waitpid and \"lab1 3\" to test the extra credit WNOHANG option \n");
@@ -65,7 +69,7 @@ int exitWait(void)
     }
     return 0;
 }
-/*
+
 int waitPid(void)
 {
 
@@ -82,7 +86,7 @@ int waitPid(void)
         if (pid_a[i] == 0)
         { // only the child executed this code
             printf(1, "\n The is child with PID# %d and I will exit with status %d\n", getpid(), getpid() + 4);
-            exitS(getpid() + 4);
+            exit(getpid() + 4);
         }
     }
 
@@ -123,7 +127,7 @@ int CELEBW02(void)
     else if (pid == 0)
     {
         sleep(5);
-        exitS(1);
+        exit(1);
     }
     else
         do
@@ -142,4 +146,4 @@ int CELEBW02(void)
         } while (retpid == 0);
 
     return 0;
-}*/
+}
