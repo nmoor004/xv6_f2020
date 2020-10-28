@@ -8,8 +8,23 @@
 #include "proc.h"
 
 int sys_waitpid(void) {
+    int *status;
+    int pid;
+    int options;
 
-    return
+    if (argint(0, &pid) < 0) {
+        return -1;
+    }
+
+    if (argptr(1, (void*)&status, sizeof(int)) < 0) {
+        return -1;
+    }
+
+    if (argint(2, &options) < 0) {
+        return -1;
+    }
+
+    return waitpid(pid, status, options);
 }
 
 
