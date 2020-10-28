@@ -326,7 +326,7 @@ waitpid(int pid, int *status, int options)
 {
     struct proc *p;
    // int havekids;
-    int pid; //==LAB1==
+   // int pid; //==LAB1==
     struct proc *curproc = myproc();
 
     acquire(&ptable.lock);
@@ -366,7 +366,6 @@ waitpid(int pid, int *status, int options)
             }
         }
 
-        if ()
 
        // dont need this because we aren't waiting on a child process
        // if(!havekids || curproc->killed){

@@ -7,6 +7,12 @@
 #include "mmu.h"
 #include "proc.h"
 
+int
+sys_fork(void)
+{
+    return fork();
+}
+
 int sys_waitpid(void) {
     int *status;
     int pid;
@@ -25,16 +31,6 @@ int sys_waitpid(void) {
     }
 
     return waitpid(pid, status, options);
-}
-
-
-sys_wait(void)
-{
-    int *status;
-    if (argptr(0, (void*)&status, sizeof(status) < 0)) { //==LAB1==
-        return -1;
-    }
-    return wait(status);
 }
 
 int
