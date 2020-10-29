@@ -22,7 +22,7 @@ int sys_waitpid(void) {
         return -1;
     }
 
-    if (argptr(1, (void*)&status, sizeof(int)) < 0) {
+    if (argptr(1, (void*)&status, sizeof(status)) < 0) {
         return -1;
     }
 
